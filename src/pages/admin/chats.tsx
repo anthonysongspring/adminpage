@@ -85,7 +85,10 @@ export default function AdminChats() {
                       <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">
                         {getJobTitle(chat.jobId)}
                       </span>
-                      <span className="text-xs text-gray-400">{mentor?.emoji} {mentor?.name}</span>
+                      <span className="text-xs text-gray-400 flex items-center gap-1">
+                        {mentor?.emoji && <img src={mentor.emoji} alt={mentor?.name} className="w-4 h-4 rounded-full object-cover inline" />}
+                        {mentor?.name}
+                      </span>
                     </div>
                     <p className="text-xs text-gray-500 truncate">{lastMsg?.content}</p>
                   </button>
@@ -109,7 +112,7 @@ export default function AdminChats() {
                     <div className="flex items-center gap-2 text-xs text-gray-500">
                       {(() => {
                         const m = getMentor(selectedChat.mentorId)
-                        return <span>{m?.emoji} {m?.name} ({m?.role})</span>
+                        return <span className="flex items-center gap-1">{m?.emoji && <img src={m.emoji} alt={m?.name} className="w-4 h-4 rounded-full object-cover" />}{m?.name} ({m?.role})</span>
                       })()}
                       <span>·</span>
                       <span>{formatDate(selectedChat.startedAt)} 시작</span>
@@ -128,7 +131,9 @@ export default function AdminChats() {
                     >
                       {msg.role === 'assistant' && (
                         <div className="w-7 h-7 bg-kt-dark rounded-full flex items-center justify-center text-xs mr-2 flex-shrink-0 mt-1">
-                          {getMentor(selectedChat.mentorId)?.emoji}
+                          {getMentor(selectedChat.mentorId)?.emoji && (
+                            <img src={getMentor(selectedChat.mentorId)!.emoji} alt="" className="w-full h-full object-cover rounded-full" />
+                          )}
                         </div>
                       )}
                       <div className={`max-w-sm ${msg.role === 'user' ? 'items-end' : 'items-start'} flex flex-col`}>

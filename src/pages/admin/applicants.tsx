@@ -25,8 +25,8 @@ const appliedCount = 190
 const conversionRate = Math.round((appliedCount / totalChatters) * 100)
 
 const MENTOR_STATS = [
-  { name: '빅', emoji: '🦁', total: 125, applied: 107 },
-  { name: '또리', emoji: '🐬', total: 105, applied: 83 },
+  { name: '빅', emoji: '/vic.png', total: 125, applied: 107 },
+  { name: '또리', emoji: '/dory.png', total: 105, applied: 83 },
 ]
 
 const CROSS_CONSULT = { total: 105, crossCount: 97 }
@@ -91,7 +91,9 @@ export default function AdminApplicants() {
             {MENTOR_STATS.map((m) => (
               <div key={m.name} className="bg-white rounded-xl p-5 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">{m.emoji}</span>
+                  <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100">
+                    <img src={m.emoji} alt={m.name} className="w-full h-full object-cover" />
+                  </div>
                   <div>
                     <p className="font-bold text-gray-900">{m.name}에게 상담받은 수</p>
                     <p className="text-xs text-gray-400">총 {m.total}명 상담</p>
@@ -216,7 +218,7 @@ export default function AdminApplicants() {
                       <td className="px-4 py-3.5 font-medium text-gray-900">{r.userId}</td>
                       <td className="px-4 py-3.5 text-gray-600">{getJobTitle(r.jobId)}</td>
                       <td className="px-4 py-3.5 text-gray-600">
-                        {mentor?.emoji} {mentor?.name}
+                        {mentor?.emoji && <img src={mentor.emoji} alt={mentor?.name} className="w-5 h-5 rounded-full object-cover inline mr-1" />}{mentor?.name}
                       </td>
                       <td className="px-4 py-3.5 text-gray-500">{formatDate(r.chatDate)}</td>
                       <td className="px-4 py-3.5">

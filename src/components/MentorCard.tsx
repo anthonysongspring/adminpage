@@ -25,11 +25,11 @@ export default function MentorCard({ mentor, selected, onSelect }: Props) {
         </div>
       )}
 
-      {/* 이모지 아바타 */}
-      <div className={`w-20 h-20 rounded-full flex items-center justify-center text-4xl mb-4 ${
+      {/* 아바타 */}
+      <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-4 overflow-hidden ${
         selected ? 'bg-red-100' : 'bg-gray-100'
       }`}>
-        {mentor.emoji}
+        <img src={mentor.emoji} alt={mentor.name} className="w-full h-full object-cover" />
       </div>
 
       {/* 이름 + 직책 */}

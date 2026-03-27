@@ -85,8 +85,8 @@ export default function ChatPage() {
 
             {/* 멘토 정보 */}
             <div className="flex items-center gap-3 flex-1">
-              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-xl">
-                {mentor.emoji}
+              <div className="w-10 h-10 rounded-full bg-gray-100 overflow-hidden">
+                <img src={mentor.emoji} alt={mentor.name} className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="font-bold text-gray-900 text-sm">{mentor.name}</p>
@@ -111,8 +111,8 @@ export default function ChatPage() {
               >
                 {/* 멘토 아바타 */}
                 {msg.role === 'assistant' && (
-                  <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-base flex-shrink-0 mt-1">
-                    {mentor.emoji}
+                  <div className="w-8 h-8 rounded-full bg-gray-100 overflow-hidden flex-shrink-0 mt-1">
+                    <img src={mentor.emoji} alt={mentor.name} className="w-full h-full object-cover" />
                   </div>
                 )}
 

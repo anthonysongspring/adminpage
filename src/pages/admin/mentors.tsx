@@ -95,8 +95,8 @@ export default function AdminMentors() {
               <div key={mentor.id} className="bg-white rounded-xl p-5 shadow-sm">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-2xl">
-                      {mentor.emoji}
+                    <div className="w-12 h-12 bg-gray-100 rounded-xl overflow-hidden">
+                      <img src={mentor.emoji} alt={mentor.name} className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <p className="font-bold text-gray-900">{mentor.name}</p>

@@ -124,7 +124,9 @@ export default function AdminDashboard() {
               <div className="space-y-4">
                 {MENTOR_CHAT_COUNT.map((m, i) => (
                   <div key={m.name} className="flex items-center gap-3">
-                    <span className="text-2xl">{m.emoji}</span>
+                    <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-100">
+                      <img src={m.emoji} alt={m.name} className="w-full h-full object-cover" />
+                    </div>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-900">{m.name}</p>
                       <p className="text-xs text-gray-500">{m.count}건의 채팅</p>

@@ -28,8 +28,8 @@ const ratingDist = [5, 4, 3, 2, 1].map((star) => ({
 }))
 
 const MENTOR_AVG = [
-  { name: '빅', emoji: '🦁', avg: 4.8, count: 115 },
-  { name: '또리', emoji: '🐬', avg: 4.5, count: 115 },
+  { name: '빅', emoji: '/vic.png', avg: 4.8, count: 115 },
+  { name: '또리', emoji: '/dory.png', avg: 4.5, count: 115 },
 ]
 
 const RATING_COLOR: Record<number, string> = {
@@ -103,7 +103,9 @@ export default function AdminSurvey() {
               <div className="space-y-4">
                 {MENTOR_AVG.map((m) => (
                   <div key={m.name} className="flex items-center gap-3">
-                    <span className="text-2xl">{m.emoji}</span>
+                    <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-100">
+                      <img src={m.emoji} alt={m.name} className="w-full h-full object-cover" />
+                    </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-sm font-medium text-gray-900">{m.name}</span>
@@ -137,7 +139,10 @@ export default function AdminSurvey() {
                         <span className="text-gray-400 text-xs">·</span>
                         <span className="text-xs text-gray-500">{getJobTitle(r.jobId)}</span>
                         <span className="text-gray-400 text-xs">·</span>
-                        <span className="text-xs text-gray-500">{mentor?.emoji} {mentor?.name}</span>
+                        <span className="text-xs text-gray-500 flex items-center gap-1">
+                          {mentor?.emoji && <img src={mentor.emoji} alt={mentor?.name} className="w-4 h-4 rounded-full object-cover" />}
+                          {mentor?.name}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <span
