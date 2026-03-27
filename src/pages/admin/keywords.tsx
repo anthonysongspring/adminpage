@@ -77,9 +77,9 @@ export default function AdminKeywords() {
                       className="px-3 py-1 rounded-full font-medium cursor-default transition-transform hover:scale-110"
                       style={{
                         fontSize: `${size}px`,
-                        backgroundColor: `rgba(229, 0, 27, ${opacity * 0.15})`,
-                        color: `rgba(229, 0, 27, ${opacity})`,
-                        border: `1px solid rgba(229, 0, 27, ${opacity * 0.3})`,
+                        backgroundColor: `rgba(172, 57, 71, ${opacity * 0.15})`,
+                        color: `rgba(172, 57, 71, ${opacity})`,
+                        border: `1px solid rgba(172, 57, 71, ${opacity * 0.3})`,
                       }}
                       title={`${k.count}회 언급`}
                     >

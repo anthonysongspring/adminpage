@@ -111,7 +111,7 @@ export default function AdminApplicants() {
                 </div>
                 <div className="mt-3 h-2 bg-gray-100 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-kt-red rounded-full"
+                    className="h-full bg-kt-red-muted rounded-full"
                     style={{ width: `${Math.round((m.applied / m.total) * 100)}%` }}
                   />
                 </div>
@@ -167,7 +167,7 @@ export default function AdminApplicants() {
                   </div>
                   <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-kt-red rounded-full transition-all"
+                      className="h-full bg-kt-red-muted rounded-full transition-all"
                       style={{ width: `${job.rate}%` }}
                     />
                   </div>

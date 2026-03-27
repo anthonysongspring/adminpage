@@ -109,7 +109,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-kt-red rounded-full transition-all"
+                        className="h-full bg-kt-red-muted rounded-full transition-all"
                         style={{ width: `${(j.count / MAX_JOB_COUNT) * 100}%` }}
                       />
                     </div>

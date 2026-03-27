@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       colors: {
         kt: {
-          red: '#E5001B',
+          red: '#16A34A',
+          'red-muted': '#4D8C65',
           dark: '#1A1A2E',
           gray: '#F5F5F5',
         },
