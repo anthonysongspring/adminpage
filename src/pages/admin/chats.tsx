@@ -14,16 +14,19 @@ function getMentor(mentorId: string) {
 }
 
 function formatDate(dt: string) {
-  return new Date(dt).toLocaleDateString('ko-KR', {
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  })
+  const d = new Date(dt)
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const dd = String(d.getDate()).padStart(2, '0')
+  const hh = String(d.getHours()).padStart(2, '0')
+  const min = String(d.getMinutes()).padStart(2, '0')
+  return `${mm}/${dd} ${hh}:${min}`
 }
 
 function formatTime(dt: string) {
-  return new Date(dt).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })
+  const d = new Date(dt)
+  const hh = String(d.getHours()).padStart(2, '0')
+  const min = String(d.getMinutes()).padStart(2, '0')
+  return `${hh}:${min}`
 }
 
 export default function AdminChats() {

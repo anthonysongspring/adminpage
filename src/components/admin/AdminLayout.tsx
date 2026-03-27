@@ -8,6 +8,8 @@ const NAV_ITEMS = [
   { href: '/admin/mentors', label: '멘토 관리', icon: '👥' },
   { href: '/admin/chats', label: '채팅 내역', icon: '💬' },
   { href: '/admin/keywords', label: '키워드 분석', icon: '🔍' },
+  { href: '/admin/survey', label: '설문 만족도', icon: '⭐' },
+  { href: '/admin/applicants', label: '실제 지원자', icon: '✅' },
 ]
 
 export default function AdminLayout({ children }: { children: ReactNode }) {

@@ -106,6 +106,47 @@ export const MOCK_CHATS: ChatSession[] = [
   },
 ]
 
+export interface SurveyResult {
+  id: string
+  chatId: string
+  userId: string
+  jobId: string
+  mentorId: string
+  rating: 1 | 2 | 3 | 4 | 5
+  helpful: boolean
+  comment: string
+  submittedAt: string
+}
+
+export const SURVEY_RESULTS: SurveyResult[] = [
+  { id: 's-001', chatId: 'chat-001', userId: 'user_A', jobId: 'ai-dx', mentorId: 'kim_seonbae', rating: 5, helpful: true, comment: '포트폴리오 방향을 명확하게 잡을 수 있었어요. 정말 도움이 됐습니다!', submittedAt: '2025-03-20T10:25:00' },
+  { id: 's-002', chatId: 'chat-002', userId: 'user_B', jobId: 'sw-dev', mentorId: 'park_mentor', rating: 4, helpful: true, comment: '자소서 팁이 매우 유용했어요. 조금 더 구체적인 예시가 있으면 좋겠어요.', submittedAt: '2025-03-21T14:45:00' },
+  { id: 's-003', chatId: 'chat-003', userId: 'user_C', jobId: 'cloud-migration', mentorId: 'kim_seonbae', rating: 5, helpful: true, comment: 'AWS 자격증 준비 방향을 잡는 데 큰 도움이 됐어요.', submittedAt: '2025-03-22T09:20:00' },
+  { id: 's-004', chatId: 'chat-004', userId: 'user_D', jobId: 'network-infra', mentorId: 'lee_frontier', rating: 3, helpful: true, comment: '전반적으로 괜찮았지만 좀 더 깊은 내용을 원했어요.', submittedAt: '2025-03-23T16:20:00' },
+  { id: 's-005', chatId: 'chat-005', userId: 'user_E', jobId: 'security', mentorId: 'park_mentor', rating: 4, helpful: true, comment: '보안 직무 면접 준비에 실질적인 도움을 받았어요.', submittedAt: '2025-03-24T11:20:00' },
+  { id: 's-006', chatId: 'chat-006', userId: 'user_F', jobId: 'ai-dx', mentorId: 'lee_frontier', rating: 2, helpful: false, comment: '비전공자 입장에서 너무 일반적인 답변이었어요. 더 맞춤형 조언을 원했습니다.', submittedAt: '2025-03-25T13:20:00' },
+]
+
+export interface ApplicantRecord {
+  userId: string
+  chatId: string
+  jobId: string
+  mentorId: string
+  chatDate: string
+  applied: boolean
+  appliedAt?: string
+  result?: '서류통과' | '최종합격' | '불합격' | '검토중'
+}
+
+export const APPLICANT_RECORDS: ApplicantRecord[] = [
+  { userId: 'user_A', chatId: 'chat-001', jobId: 'ai-dx', mentorId: 'kim_seonbae', chatDate: '2025-03-20T10:15:00', applied: true, appliedAt: '2025-03-22T09:00:00', result: '서류통과' },
+  { userId: 'user_B', chatId: 'chat-002', jobId: 'sw-dev', mentorId: 'park_mentor', chatDate: '2025-03-21T14:30:00', applied: true, appliedAt: '2025-03-23T14:00:00', result: '검토중' },
+  { userId: 'user_C', chatId: 'chat-003', jobId: 'cloud-migration', mentorId: 'kim_seonbae', chatDate: '2025-03-22T09:00:00', applied: false },
+  { userId: 'user_D', chatId: 'chat-004', jobId: 'network-infra', mentorId: 'lee_frontier', chatDate: '2025-03-23T16:00:00', applied: true, appliedAt: '2025-03-25T10:00:00', result: '불합격' },
+  { userId: 'user_E', chatId: 'chat-005', jobId: 'security', mentorId: 'park_mentor', chatDate: '2025-03-24T11:00:00', applied: false },
+  { userId: 'user_F', chatId: 'chat-006', jobId: 'ai-dx', mentorId: 'lee_frontier', chatDate: '2025-03-25T13:00:00', applied: true, appliedAt: '2025-03-26T11:00:00', result: '최종합격' },
+]
+
 export const KEYWORD_STATS: { keyword: string; count: number; category: string }[] = [
   { keyword: '자소서', count: 18, category: '서류' },
   { keyword: '면접', count: 16, category: '면접' },
