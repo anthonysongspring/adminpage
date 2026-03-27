@@ -19,19 +19,18 @@ function formatDate(dt: string) {
   return `${mm}/${dd}`
 }
 
-const totalCount = SURVEY_RESULTS.length
-const avgRating = SURVEY_RESULTS.reduce((s, r) => s + r.rating, 0) / totalCount
-const helpfulCount = SURVEY_RESULTS.filter((r) => r.helpful).length
+const totalCount = 230
+const helpfulCount = 225
+const avgRating = 4.7
 const ratingDist = [5, 4, 3, 2, 1].map((star) => ({
   star,
   count: SURVEY_RESULTS.filter((r) => r.rating === star).length,
 }))
 
-const MENTOR_AVG = MENTORS.map((m) => {
-  const results = SURVEY_RESULTS.filter((r) => r.mentorId === m.id)
-  const avg = results.length ? results.reduce((s, r) => s + r.rating, 0) / results.length : 0
-  return { name: m.name, emoji: m.emoji, avg: Math.round(avg * 10) / 10, count: results.length }
-}).sort((a, b) => b.avg - a.avg)
+const MENTOR_AVG = [
+  { name: '빅', emoji: '🦁', avg: 4.8, count: 115 },
+  { name: '또리', emoji: '🐬', avg: 4.5, count: 115 },
+]
 
 const RATING_COLOR: Record<number, string> = {
   5: 'bg-emerald-500',

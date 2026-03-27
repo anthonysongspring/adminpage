@@ -24,6 +24,13 @@ const totalChatters = 230
 const appliedCount = 190
 const conversionRate = Math.round((appliedCount / totalChatters) * 100)
 
+const MENTOR_STATS = [
+  { name: '빅', emoji: '🦁', total: 125, applied: 107 },
+  { name: '또리', emoji: '🐬', total: 105, applied: 83 },
+]
+
+const CROSS_CONSULT = { total: 105, crossCount: 97 }
+
 const JOB_STATS = JOBS.map((job) => {
   const records = APPLICANT_RECORDS.filter((r) => r.jobId === job.id)
   const applied = records.filter((r) => r.applied).length
@@ -76,6 +83,72 @@ export default function AdminApplicants() {
             <div className="bg-white rounded-xl p-5 shadow-sm text-center">
               <p className="text-4xl font-bold text-emerald-500">{conversionRate}%</p>
               <p className="text-sm text-gray-500 mt-2">채팅 → 지원 전환율</p>
+            </div>
+          </div>
+
+          {/* 멘토별 상담 수 */}
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            {MENTOR_STATS.map((m) => (
+              <div key={m.name} className="bg-white rounded-xl p-5 shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-3xl">{m.emoji}</span>
+                  <div>
+                    <p className="font-bold text-gray-900">{m.name}에게 상담받은 수</p>
+                    <p className="text-xs text-gray-400">총 {m.total}명 상담</p>
+                  </div>
+                </div>
+                <div className="flex items-end justify-between">
+                  <div>
+                    <p className="text-3xl font-bold text-kt-red">{m.applied}명</p>
+                    <p className="text-sm text-gray-500 mt-0.5">실제 지원자</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-2xl font-bold text-emerald-500">
+                      {Math.round((m.applied / m.total) * 100)}%
+                    </p>
+                    <p className="text-xs text-gray-400">전환율</p>
+                  </div>
+                </div>
+                <div className="mt-3 h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-kt-red rounded-full"
+                    style={{ width: `${Math.round((m.applied / m.total) * 100)}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 또리 → 빅 중복 상담 */}
+          <div className="bg-white rounded-xl p-5 shadow-sm mb-6 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🐬</span>
+              <span className="text-gray-400 text-xl font-bold">→</span>
+              <span className="text-2xl">🦁</span>
+              <div className="ml-1">
+                <p className="font-bold text-gray-900">또리에게 처음 상담 후 빅에게도 상담받은 수</p>
+                <p className="text-xs text-gray-400">또리 상담자 {CROSS_CONSULT.total}명 중</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="text-right">
+                <p className="text-3xl font-bold text-kt-red">{CROSS_CONSULT.crossCount}명</p>
+                <p className="text-xs text-gray-400 mt-0.5">중복 상담</p>
+              </div>
+              <div className="text-right">
+                <p className="text-3xl font-bold text-emerald-500">
+                  {Math.round((CROSS_CONSULT.crossCount / CROSS_CONSULT.total) * 100)}%
+                </p>
+                <p className="text-xs text-gray-400 mt-0.5">재상담율</p>
+              </div>
+              <div className="w-32">
+                <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-emerald-400 rounded-full"
+                    style={{ width: `${Math.round((CROSS_CONSULT.crossCount / CROSS_CONSULT.total) * 100)}%` }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
